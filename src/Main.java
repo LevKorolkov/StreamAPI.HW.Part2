@@ -31,8 +31,8 @@ public class Main {
                 .toList();
 
         List<String> familiesOfWorkablePeoples = persons.stream()
-                .filter(x -> x.getAge() >= 18 && x.getAge() <= 60 && x.getSex().equals(Sex.WOMAN))
-                .filter(y -> y.getAge() >= 18 && y.getAge() <= 65 && y.getSex().equals(Sex.MAN))
+                .filter(x -> (x.getAge() >= 18 && x.getAge() <= 60 && x.getSex().equals(Sex.WOMAN)) ||
+                        (x.getAge() >= 18 && x.getAge() <= 65 && x.getSex().equals(Sex.MAN)))
                 .filter(g -> g.getEducation().equals(Education.HIGHER))
                 .map(Person::getFamily)
                 .sorted(Comparator.naturalOrder())
